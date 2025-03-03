@@ -1,0 +1,156 @@
+{"escudos" :
+
+
+
+[   
+    
+    
+    
+    {
+        "Nombre" : "escudo0",
+        "Simuladores" : [
+          {
+              "Titulo" : "Embarque y desembarque en helicoptero",
+              "Descripcion" : "holaholahola",
+              "Miniautura" : "src/Grados/img/Grado0.png",
+              "Imagen" : "src/Embarque/img/Embarque0.png,src/Embarque/img/Embarque1.png,src/Embarque/img/Embarque2.png,src/Embarque/img/Embarque3.png,src/Embarque/img/Embarque4.png"
+              
+                    
+             
+                
+             
+          },
+          
+          {
+              "Titulo" : "Protocolo ante una hemorragia externa",
+              "Descripcion" : "dbafjhajsdncvjadnf",
+              "Miniautura" : "src/Grados/img/Grado1.png",
+              "Imagen" : "src/hemorragia/img/Hemorragia0.png,src/hemorragia/img/Hemorragia1.png,src/hemorragia/img/Hemorragia2.png,src/hemorragia/img/Hemorragia3.png,src/hemorragia/img/Hemorragia4.png"
+                    
+             
+                
+             
+          },
+          {
+              "Titulo" : "Maniobras de extincion segun instalacion",
+              "Descripcion" : "dbafjhajsdncvjadnf",
+              "Miniautura" : "src/Grados/img/Grado2.png",
+              "Imagen" : "src/Extincion/img/Extincion0.png,src/Extincion/img/Extincion1.png,src/Extincion/img/Extincion2.png,src/Extincion/img/Extincion3.png,src/Extincion/img/Extincion4.png"
+                    
+             
+                
+             
+          },
+          {
+              "Titulo" : "Tipologia y caracteristicas de los EPIS",
+              "Descripcion" : "dbafjhajsdncvjadnf",
+              "Miniautura" : "src/Grados/img/Grado3.png",
+              "Imagen" : "src/EPIS/img/EPIS0.png,src/EPIS/img/EPIS1.png,src/EPIS/img/EPIS2.png,src/EPIS/img/EPIS3.png,src/EPIS/img/EPIS4.png"
+                    
+            
+             
+                
+             
+          },
+          {
+              "Titulo" : "Señalizacion a helicoptero desde tierra",
+              "Descripcion" : "dbafjhajsdncvjadnf",
+              "Miniautura" : "src/Grados/img/Grado4.png",
+              "Imagen" : "src/helicoptero/img/Helicoptero0.png,src/helicoptero/img/Helicoptero1.png,src/helicoptero/img/Helicoptero2.png,src/helicoptero/img/Helicoptero3.png,src/helicoptero/img/Helicoptero4.png"
+                    
+             
+                
+             
+          },
+          
+          {
+              "Titulo" : "Rescate en ascensor",
+              "Descripcion" : "121212112",
+              "Miniautura" : "src/Grados/img/Grado5.png",
+              "Imagen" : "src/ascensores/img/Ascensor0.png,src/ascensores/img/Ascensor1.png,src/ascensores/img/Ascensor2.png,src/ascensores/img/Ascensor3.png,src/ascensores/img/Ascensor4.png"
+                    
+             
+                
+             
+          }  
+          
+        
+        
+            ]
+        
+       },
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+   {
+        "Nombre" : "escudo1",
+        "Simuladores" : [
+          
+          
+          {
+              "Titulo" : "Protocolo ante hemorragia externa",
+              "Descripcion" : "dbafjhajsdncvjadnf",
+              "Miniautura" : "src/Grados/img/Grado1.png",
+              "Imagen" : "src/hemorragia/img/Hemorragia0.png,src/hemorragia/img/Hemorragia1.png,src/hemorragia/img/Hemorragia2.png,src/hemorragia/img/Hemorragia3.png,src/hemorragia/img/Hemorragia4.png"
+             
+          },
+          
+          {
+              "Titulo" : "Maniobras de extincion segun instalacion",
+              "Descripcion" : "dbafjhajsdncvjadnf",
+              "Miniautura" : "src/Grados/img/Grado2.png",
+              "Imagen" : "src/Extincion/img/Extincion0.png,src/Extincion/img/Extincion1.png,src/Extincion/img/Extincion2.png,src/Extincion/img/Extincion3.png,src/Extincion/img/Extincion4.png"
+             
+          },
+          
+          {
+              "Titulo" : "Embarque y desembarque en helicoptero",
+              "Descripcion" : "holaholahola",
+              "Miniautura" : "src/Grados/img/Grado0.png",
+              "Imagen" : "src/Embarque/img/Embarque0.png,src/Embarque/img/Embarque1.png,src/Embarque/img/Embarque2.png,src/Embarque/img/Embarque3.png,src/Embarque/img/Embarque4.png"
+             
+          },
+          
+          
+          {
+              "Titulo" : "Señalizacion a helicoptero desde tierra",
+              "Descripcion" : "dbafjhajsdncvjadnf",
+              "Miniautura" : "src/Grados/img/Grado4.png",
+              "Imagen" : "src/helicoptero/img/Helicoptero0.png,src/helicoptero/img/Helicoptero1.png,src/helicoptero/img/Helicoptero2.png,src/helicoptero/img/Helicoptero3.png,src/helicoptero/img/Helicoptero4.png"
+             
+          },
+          
+          {
+              "Titulo" : "Tipologia y caracteristicas de los EPIS",
+              "Descripcion" : "dbafjhajsdncvjadnf",
+              "Miniautura" : "src/Grados/img/Grado3.png",
+              "Imagen" : "src/EPIS/img/EPIS0.png,src/EPIS/img/EPIS1.png,src/EPIS/img/EPIS2.png,src/EPIS/img/EPIS3.png,src/EPIS/img/EPIS4.png"
+             
+          },
+          
+          {
+              "Titulo" : "Rescate en ascensor",
+              "Descripcion" : "25252552525",
+              "Miniautura" : "src/Grados/img/Grado5.png",
+              "Imagen" : "src/ascensores/img/Ascensor0.png,src/ascensores/img/Ascensor1.png,src/ascensores/img/Ascensor2.png,src/ascensores/img/Ascensor3.png,src/ascensores/img/Ascensor4.png"
+             
+          }  
+          
+        
+        
+            ]
+        
+       }
+ 
+]
+}

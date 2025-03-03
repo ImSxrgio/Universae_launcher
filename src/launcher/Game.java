@@ -13,24 +13,28 @@ import javax.swing.JLabel;
 public class Game extends javax.swing.JPanel {
  
     private int indiceImagenActual = 0;
-    private final String[] rutaImagenes = {
-        "/Embarque/img/Embarque0.png",
-        "/Embarque/img/Embarque1.png",
-        "/Embarque/img/Embarque2.png",
-        "/Embarque/img/Embarque3.png",
-        "/Embarque/img/Embarque4.png"
-    };
+    private String[] rutaImagenes;
+    private int indexEscudo;
+    private int indexSimulador;
+    
+    
    
     
     
  
-    public Game() {
-       
+    public Game(int indexEscudo, int indexSimulador) {
+        
+        this.indexEscudo = indexEscudo;
+        this.indexSimulador = indexSimulador;
+        
         initComponents();
-        
+        cargarImagenes();
+        updateImage();
+        actualizarTitulo();
+        actualizarDescripción();
        
         
-        
+        //Listener para la flecha izq
         flechaIzq.addMouseListener(new java.awt.event.MouseAdapter() {
             
             
@@ -40,7 +44,7 @@ public class Game extends javax.swing.JPanel {
             }
             
         });
-        
+        //Listener para la flecha dcha
         flechaDcha.addMouseListener(new java.awt.event.MouseAdapter() {
             
            
@@ -53,20 +57,34 @@ public class Game extends javax.swing.JPanel {
         
     }
     
-   
+        //Metodo para cargar las imagenes mediante el archivoJSON
+        private void cargarImagenes() {
+            
+            int totalImagenes = 5;
+            rutaImagenes = new String [totalImagenes];
+            
+            rutaImagenes = ManejoJSON.ImagenSimulador(indexEscudo, indexSimulador).split(",");
+        
+        
+        }
     
+        
+        //Metodo para hacer el update de las imagenes
         private void updateImage(){
-            panelSimulador.setIcon(new javax.swing.ImageIcon(getClass().getResource(rutaImagenes[indiceImagenActual])));
+            if (rutaImagenes != null && rutaImagenes.length > 0){
+                String rutaActual = rutaImagenes[indiceImagenActual];
+                 panelSimulador.setIcon(new javax.swing.ImageIcon(rutaActual));
+            }
           
         }
-        
+       //Metodo para mostrar la imagen anterior 
         private void imagenAnterior() {
         
             indiceImagenActual = (indiceImagenActual - 1 + rutaImagenes.length) % rutaImagenes.length;
             updateImage();
             actualizarCirculos();
         }
-        
+        //Metodo para mostrar la imagen siguiente
         private void imagenSiguiente() {
         
         
@@ -74,7 +92,7 @@ public class Game extends javax.swing.JPanel {
             updateImage();
             actualizarCirculos();
         }
-        
+        //Metodo para actualizar los circulos del indice
         private void actualizarCirculos() {
         
             //Rutas de iconos
@@ -82,7 +100,7 @@ public class Game extends javax.swing.JPanel {
             String iconoVacio = "/circulos/img/PuntoCarruselEmpty.png";
             
             //Array para los circulo
-            JLabel[] circulos = {circulo1, circulo2, circulo3, ciruclo4, circulo5};
+            JLabel[] circulos = {circulo1, circulo2, circulo3, circulo4, circulo5};
             
             for (int i = 0; i < circulos.length; i++){
                 if (i == indiceImagenActual) {circulos[i].setIcon(new javax.swing.ImageIcon(getClass().getResource(iconoRelleno)));}
@@ -91,6 +109,23 @@ public class Game extends javax.swing.JPanel {
                 }
                 }
             
+        }
+        //Método para updatear el titulo
+        private void actualizarTitulo() {
+            String titulo = ManejoJSON.TituloGeneralSimulador(indexEscudo, indexSimulador);
+            
+            
+            Titulo.setText(titulo);
+           
+        
+        }
+        //Método para updatear la descripción
+        private void actualizarDescripción() {
+            String descripcion = ManejoJSON.DescripcionSimulador(indexEscudo, indexSimulador);
+            
+             Descripcion.setText(descripcion);
+        
+        
         }
         
         
@@ -114,13 +149,14 @@ public class Game extends javax.swing.JPanel {
         circulo1 = new javax.swing.JLabel();
         circulo2 = new javax.swing.JLabel();
         circulo3 = new javax.swing.JLabel();
-        ciruclo4 = new javax.swing.JLabel();
+        circulo4 = new javax.swing.JLabel();
         circulo5 = new javax.swing.JLabel();
         Titulo = new javax.swing.JLabel();
         Barra = new javax.swing.JLabel();
         Fondo1 = new javax.swing.JLabel();
         Fondo2 = new javax.swing.JLabel();
         Descripcion = new javax.swing.JLabel();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -157,10 +193,10 @@ public class Game extends javax.swing.JPanel {
         circulo3.setPreferredSize(new java.awt.Dimension(15, 15));
         add(circulo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 530, -1, -1));
 
-        ciruclo4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ciruclo4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/circulos/img/PuntoCarruselEmpty.png"))); // NOI18N
-        ciruclo4.setPreferredSize(new java.awt.Dimension(15, 15));
-        add(ciruclo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, -1, -1));
+        circulo4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        circulo4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/circulos/img/PuntoCarruselEmpty.png"))); // NOI18N
+        circulo4.setPreferredSize(new java.awt.Dimension(15, 15));
+        add(circulo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, -1, -1));
 
         circulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         circulo5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/circulos/img/PuntoCarruselEmpty.png"))); // NOI18N
@@ -172,7 +208,6 @@ public class Game extends javax.swing.JPanel {
         Titulo.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         Titulo.setForeground(new java.awt.Color(255, 255, 255));
         Titulo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Titulo.setText("Embarque y desembarque en helicoptero ");
         add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, 340, 30));
 
         Barra.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -190,8 +225,10 @@ public class Game extends javax.swing.JPanel {
         Descripcion.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         Descripcion.setForeground(new java.awt.Color(255, 255, 255));
         Descripcion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Descripcion.setText("⦁En un campo de prácticas sumido en el desorden y la confusión tienes que encontrar tienes que encontrar y colocar las partes de los EPIs utilizados en la extinción de incendios forestales.\n");
         add(Descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, 1050, 100));
+
+        jToggleButton1.setText("jToggleButton1");
+        add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 450, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -204,11 +241,12 @@ public class Game extends javax.swing.JPanel {
     private javax.swing.JLabel circulo1;
     private javax.swing.JLabel circulo2;
     private javax.swing.JLabel circulo3;
+    private javax.swing.JLabel circulo4;
     private javax.swing.JLabel circulo5;
-    private javax.swing.JLabel ciruclo4;
     private javax.swing.JLabel comenzar;
     private javax.swing.JLabel flechaDcha;
     private javax.swing.JLabel flechaIzq;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel panelSimulador;
     // End of variables declaration//GEN-END:variables
 }

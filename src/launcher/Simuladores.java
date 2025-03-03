@@ -13,29 +13,32 @@ import javax.swing.JLabel;
  */
 public class Simuladores extends javax.swing.JPanel {
 
-//Variable para almacenar el Listener
-    private SimuladoresListener listener;
+    public Home padre;
     
+    
+    public int grado;
    
 
 
 
 //Constructor
     
-    public Simuladores() {
+    public Simuladores(int indexGrado) {
         initComponents();
         
-        
+        grado = indexGrado;
          JLabel[] grados = {
             grado0, grado1, grado2, grado3, grado4, grado5
         };
-        
+        //Bucle para el manejo de las miniauturas desde JSON
         for (int e = 0; e < grados.length; e++) {
-           String ruta = "src/Grados/img/Grado" + e + ".png";
+           String ruta = ManejoJSON.MiniaturaSimulador(indexGrado, e);
             
             Tools.SetImageLabel(grados[e], ruta, new Dimension(381,291));
             
             JLabel simuladores = grados [e];
+            
+            int indexJuego = e;
             
              //Para resaltar las miniaturas cuando pasa el cursor
             simuladores.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -53,12 +56,7 @@ public class Simuladores extends javax.swing.JPanel {
                 }
                 //Para detectar el click
                 public void mouseClicked(java.awt.event.MouseEvent evt){
-                
-                    if(listener != null){
-                        listener.OnGradoSeleccionado();
-                    
-                      
-                    }
+                    padre.cargarJuego(indexJuego);
                 }
                 
             });
@@ -67,10 +65,7 @@ public class Simuladores extends javax.swing.JPanel {
        
     }
     
-    public void setSimuladoresListener(SimuladoresListener listener){
     
-        this.listener = listener;
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.

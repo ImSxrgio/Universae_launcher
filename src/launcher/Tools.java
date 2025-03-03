@@ -16,7 +16,7 @@ import javax.swing.JLabel;
  */
 public class Tools {
 
-
+//SetearImagen
 public static void SetImageLabel(JLabel labelName, String root) {
         
         ImageIcon image = new ImageIcon(root);
@@ -34,7 +34,7 @@ public static void SetImageLabel(JLabel labelName, String root) {
         labelName.setIcon(icon);
     }
     
-
+//Metodo para setear las imagenes en simuladores.java
  public static void SetImageLabel(JLabel labelName, String root, Dimension dimension){
         
         ImageIcon image = new ImageIcon(root);

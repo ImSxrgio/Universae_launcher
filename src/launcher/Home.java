@@ -11,15 +11,16 @@ import launcher.Tools;
  * @author Sergio Tark
  */
 public class Home extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Home
-     */
+    public int indexGrado;
+    public int indexSimulador;
+    
+    JLabel[] escudos;
+   
     public Home() {
         initComponents();
         
         
-        JLabel[] escudos = { 
+        escudos = new JLabel[] { 
             escudo0, escudo1, escudo2, escudo3, escudo4, escudo5, escudo6, escudo7, escudo8, escudo9, escudo10, escudo11, escudo12, escudo13        
         };
      
@@ -30,7 +31,7 @@ public class Home extends javax.swing.JFrame {
                   
             Tools.SetImageLabel(escudos[i], ruta, new Dimension(80,80));
             JLabel miniautura = escudos [i];
-            
+            int indexGrado = i;
             //Para resaltar las miniaturas cuando pasa el cursor
             miniautura.addMouseListener(new java.awt.event.MouseAdapter() {
             
@@ -47,47 +48,50 @@ public class Home extends javax.swing.JFrame {
                 }
                 
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    cargarSimuladores();
+                    cargarSimuladores(indexGrado);
                    
                 }
                 
             }); 
                       
         }
-        cargarSimuladores();
+        cargarSimuladores(0);
         
         this.repaint();
       
     }
-    
-    private void cargarSimuladores() {
+    //Metodo para cargar los simuladores
+    private void cargarSimuladores(int indexGrado) {
+            this.indexGrado = indexGrado;
             
             content.removeAll();
         
-            Simuladores simuladoresPanel = new Simuladores();
+            Simuladores simuladoresPanel = new Simuladores(indexGrado);
             simuladoresPanel.setSize(content.getWidth(), content.getHeight());
             simuladoresPanel.setOpaque(false);
-        
-        //Rgistrar el listener para los eventos de selccion
-            simuladoresPanel.setSimuladoresListener(() -> {
             
-                content.removeAll();
-                
-                Game gamePanel = new Game();
-                gamePanel.setSize(content.getWidth(), content.getHeight());
-                gamePanel.setOpaque(false);
-                
-                content.add(gamePanel);
-                content.revalidate();
-                content.repaint();
+            simuladoresPanel.padre = this;
+
         
-        });
-        
-        content.add(simuladoresPanel);
+            content.add(simuladoresPanel);
+            content.revalidate();
+            content.repaint();
+    
+    }
+    //Método para cargar cada simulador especifico
+    public void cargarJuego(int indexSimulador){
+        this.indexSimulador = indexSimulador;
+        content.removeAll();
+                
+        Game gamePanel = new Game(this.indexGrado, this.indexSimulador);
+        gamePanel.setSize(content.getWidth(), content.getHeight());
+        gamePanel.setOpaque(false);
+                
+        content.add(gamePanel);
         content.revalidate();
         content.repaint();
     
-    }    
+    }
         
         
         
